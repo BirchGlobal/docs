@@ -1,21 +1,25 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+
+  "openapi": "https://thegptlabai-1-birchglobal.replit.app/openapi.json",
+
+
+  "name": "TheGPTlab API Docs",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
   },
-  "favicon": "/favicon.png",
+  "favicon": "/favicon-16x16.png",
   "colors": {
-    "primary": "#9563FF",
-    "light": "#AE87FF",
+    "primary": "#0D60D9",
+    "light": "#348CFF",
     "dark": "#0D001D",
     "background": {
       "dark": "#090014"
     },
     "anchors": {
-      "from": "#FF7F57",
-      "to": "#9563FF"
+      "from": "#0D60D9",
+      "to": "#253659"
     }
   },
   "topbarLinks": [
@@ -25,8 +29,8 @@
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "name": "Login",
+    "url": "https://app.thegptlab.com/"
   },
   "tabs": [
     {
@@ -62,21 +66,60 @@
     },
     {
       "group": "API Documentation",
-      "pages": ["api-reference/authentication"]
-    },
-    {
-      "group": "Endpoint Examples",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/update",
-        "api-reference/endpoint/delete"
+        "api-reference/authentication",
+        "api-reference/agent/add-datasource",
+        "api-reference/agent/add-llm",
+        "api-reference/agent/add-tool",
+        "api-reference/agent/create",
+        "api-reference/agent/delete",
+        "api-reference/agent/get",
+        "api-reference/agent/invoke",
+        "api-reference/agent/list-datasources",
+        "api-reference/agent/list-runs",
+        "api-reference/agent/list-tools",
+        "api-reference/agent/list",
+        "api-reference/agent/remove-datasource",
+        "api-reference/agent/remove-llm",
+        "api-reference/agent/remove-tool",
+        "api-reference/agent/update",
+        "api-reference/api-user/create",
+        "api-reference/api-user/delete",
+        "api-reference/api-user/get",
+        "api-reference/datasource/create",
+        "api-reference/datasource/delete",
+        "api-reference/datasource/get",
+        "api-reference/datasource/list",
+        "api-reference/datasource/update",
+        "api-reference/llm/create",
+        "api-reference/llm/get",
+        "api-reference/llm/list",
+        "api-reference/llm/update",
+        "api-reference/tool/create",
+        "api-reference/tool/delete",
+        "api-reference/tool/get",
+        "api-reference/tool/list",
+        "api-reference/tool/update",
+        "api-reference/workflow/add-step",
+        "api-reference/workflow/create",
+        "api-reference/workflow/delete-step",
+        "api-reference/workflow/delete",
+        "api-reference/workflow/get",
+        "api-reference/workflow/invoke",
+        "api-reference/workflow/list-steps",
+        "api-reference/workflow/list",
+        "api-reference/workflow/update"
       ]
     }
   ],
+
+
+ 
+
+  
+
   "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "twitter": "https://twitter.com/theGPTlab",
+    "linkedin": "https://www.linkedin.com/company/thegptlab/"
   }
 }

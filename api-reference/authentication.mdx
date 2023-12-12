@@ -1,22 +1,13 @@
----
-title: "Authentication"
-description: "Example overview page before API endpoints"
----
+# Authentication
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et eros iaculis tortor dapibus cursus. Curabitur quis sapien nec tortor dictum gravida.
+theGPTlab uses API keys to authenticate requests. You can manage API keys using the `api-users` endpoint.
+
+As API keys carry many privileges such as creating and destroying agents, it is important to keep them private and secure. Do not hardcode or share API keys (particularly in your source version control system), and they should only be used in your backend.
+
+Authentication is handled via HTTP headers, specifically the `Authorization` header. 
 
 ```bash
-'Authorization': 'Token <team_token>'
+curl -X POST 'https://api.gptlab.cloud/api/v1<ENDPOINT>' \
+  --header 'Authorization: Bearer <YOUR_API_KEY>'
 ```
 
-## API Tokens
-
-Nullam convallis mauris at nunc consectetur, ac imperdiet leo rutrum. Maecenas cursus purus a pellentesque blandit. Pellentesque vitae lacinia libero, non mollis metus.
-
-Nam id ullamcorper urna, at rutrum enim. [Maecenas vulputate](/introduction) vehicula libero, vitae sodales augue pretium nec. Quisque a magna tempor, semper risus vel, fermentum nunc. Pellentesque fermentum interdum ex, eu convallis massa blandit sed. Aliquam bibendum ipsum vel laoreet auctor.
-
-### Permissions
-
-Etiam lobortis ut odio ut fermentum. Nunc odio velit, sollicitudin at consectetur id, tristique eget turpis. Aliquam at risus vitae dolor sodales venenatis. In hac habitasse platea dictumst.
-
-Aenean consequat diam eget mollis fermentum. [Quisque eu malesuada](/introduction) felis, non dignissim libero.
