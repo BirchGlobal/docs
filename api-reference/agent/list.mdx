@@ -1,3 +1,51 @@
 ---
-openapi: get /api/v1/agents
+title: 'List Agents'
+api: 'GET /api/v1/agents'
 ---
+
+This endpoint retrieves a list of all agents.
+
+## HTTP Request
+
+`GET https://api.gptlab.cloud/api/v1/agents`
+
+### Headers
+
+- Authorization: Bearer `<token>`
+- Accept: application/json
+
+## Response
+
+The response returns a JSON object with a success status and an array of agents. Each agent includes details such as ID, name, avatar, initial message, description, active status, creation and update timestamps, and associated LLMs, datasources, tools, and workflow steps.
+
+<ResponseExample>
+````md ResponseExample Syntax
+
+
+{
+  "success": true,
+  "data": [
+    {
+      "id": "string",
+      "name": "string",
+      "avatar": "string",
+      "initialMessage": "string",
+      "description": "string",
+      "isActive": true,
+      "createdAt": "2023-01-01T00:00:00Z",
+      "updatedAt": "2023-01-01T00:00:00Z",
+      "llms": [...],
+      "llmModel": "GPT_3_5_TURBO_16K_0613",
+      "prompt": "string",
+      "apiUserId": "string",
+      "apiUser": {...},
+      "datasources": [...],
+      "tools": [...],
+      "workflowSteps": [...]
+    }
+  ]
+}
+
+````
+</ResponseExample>
+```

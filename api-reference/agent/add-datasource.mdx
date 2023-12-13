@@ -1,3 +1,64 @@
 ---
-openapi: post /api/v1/agents/{agent_id}/datasources
+title: 'Add Datasource to Agent'
+api: 'POST /api/v1/agents/:agent_id/datasources'
 ---
+
+This endpoint adds a datasource to a specific agent.
+
+## HTTP Request
+
+`POST https://api.gptlab.cloud/api/v1/agents/:agent_id/datasources`
+
+### Headers
+
+- Content-Type: application/json
+- Authorization: Bearer `<token>`
+- Accept: application/json
+
+### Path Parameters
+
+- `agent_id`: string (The ID of the agent to which the datasource is being added)
+
+### Request Body
+
+The request expects the following JSON object:
+
+```json
+{
+  "datasourceId": "string" // The ID of the datasource to be added
+}
+
+## Response
+
+The response returns a JSON object indicating the success of the operation and details of the agent to which the datasource was added.
+
+
+<ResponseExample>
+````md ResponseExample Syntax
+
+{
+  "success": true,
+  "data": {
+    "id": "string",
+    "name": "string",
+    "avatar": "string",
+    "initialMessage": "string",
+    "description": "string",
+    "isActive": true,
+    "createdAt": "2023-01-01T00:00:00Z",
+    "updatedAt": "2023-01-01T00:00:00Z",
+    "llms": [...],
+    "llmModel": "GPT_3_5_TURBO_16K_0613",
+    "prompt": "string",
+    "apiUserId": "string",
+    "apiUser": {...},
+    "datasources": [...],
+    "tools": [...],
+    "workflowSteps": [...]
+  }
+}
+
+
+````
+</ResponseExample>
+```

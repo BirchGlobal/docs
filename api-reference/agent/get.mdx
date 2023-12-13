@@ -1,3 +1,23 @@
 ---
-openapi: get /api/v1/agents/{agent_id}
+title: 'Get Agent'
+api: 'GET /api/v1/agents/:agent_id'
 ---
+
+This endpoint retrieves the details of a single agent identified by `agent_id`.
+
+## HTTP Request
+
+`GET https://api.gptlab.cloud/api/v1/agents/:agent_id`
+
+### Headers
+
+- Authorization: Bearer `<token>`
+- Accept: application/json
+
+### Path Parameters
+
+- `agent_id`: string (The unique identifier of the agent)
+
+## Response
+
+The response provides a JSON object indicating success and containing the detailed information of the specified agent. It includes the agent's ID, name, avatar, initial message, description, activation status, timestamps of creation and update, and associated elements like LLMs, datasources, tools, and workflow steps.
