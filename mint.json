@@ -73,13 +73,13 @@
             "api-reference/agent/add-llm",
             "api-reference/agent/add-tool",
             "api-reference/agent/create",
-            "api-reference/agent/delete",
-            "api-reference/agent/get",
             "api-reference/agent/invoke",
+            "api-reference/agent/get",
             "api-reference/agent/list-datasources",
             "api-reference/agent/list-runs",
             "api-reference/agent/list-tools",
             "api-reference/agent/list",
+            "api-reference/agent/delete",
             "api-reference/agent/remove-datasource",
             "api-reference/agent/remove-llm",
             "api-reference/agent/remove-tool",
@@ -90,17 +90,17 @@
           "group": "API User",
           "pages": [
             "api-reference/api-user/create",
-            "api-reference/api-user/delete",
-            "api-reference/api-user/get"
+            "api-reference/api-user/get",
+            "api-reference/api-user/delete"
           ]
         },
         {
           "group": "Datasource",
           "pages": [
             "api-reference/datasource/create",
-            "api-reference/datasource/delete",
             "api-reference/datasource/get",
             "api-reference/datasource/list",
+            "api-reference/datasource/delete",
             "api-reference/datasource/update"
           ]
         },
@@ -116,10 +116,10 @@
         {
           "group": "Tool",
           "pages": [
-            "api-reference/tool/create",
-            "api-reference/tool/delete",
+            "api-reference/tool/create",         
             "api-reference/tool/get",
             "api-reference/tool/list",
+            "api-reference/tool/delete",
             "api-reference/tool/update"
           ]
         },
@@ -128,12 +128,12 @@
           "pages": [
             "api-reference/workflow/add-step",
             "api-reference/workflow/create",
-            "api-reference/workflow/delete-step",
-            "api-reference/workflow/delete",
-            "api-reference/workflow/get",
             "api-reference/workflow/invoke",
+            "api-reference/workflow/get",
             "api-reference/workflow/list-steps",
             "api-reference/workflow/list",
+            "api-reference/workflow/delete-step",
+            "api-reference/workflow/delete",
             "api-reference/workflow/update"
           ]
         }

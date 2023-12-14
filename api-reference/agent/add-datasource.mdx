@@ -13,25 +13,10 @@ This endpoint adds a datasource to a specific agent.
 
 - Content-Type: application/json
 - Authorization: Bearer `<token>`
-- Accept: application/json
-
-### Path Parameters
-
-- `agent_id`: string (The ID of the agent to which the datasource is being added)
-
-### Request Body
-
-The request expects the following JSON object:
-
-```json
-{
-  "datasourceId": "string" // The ID of the datasource to be added
-}
 
 ## Response
 
-The response returns a JSON object indicating the success of the operation and details of the agent to which the datasource was added.
-
+The response returns a JSON object indicating the success of the operation and details of the agent to which the datasource was added
 
 <ResponseExample>
 ````md ResponseExample Syntax
@@ -57,7 +42,6 @@ The response returns a JSON object indicating the success of the operation and d
     "workflowSteps": [...]
   }
 }
-
 
 ````
 </ResponseExample>

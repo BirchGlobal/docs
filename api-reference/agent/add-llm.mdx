@@ -1,3 +1,40 @@
 ---
-openapi: post /api/v1/agents/{agent_id}/llms
+title: 'Add LLM to Agent'
+api: 'POST /api/v1/agents/:agent_id/llms'
 ---
+
+This endpoint adds an LLM to a specific agent.
+
+## HTTP Request
+
+`POST https://api.gptlab.cloud/api/v1/agents/:agent_id/llms`
+
+### Path Parameters
+
+- `agent_id`: String (required) - The ID of the agent to which the LLM will be added.
+
+### Headers
+
+- Content-Type: application/json
+- Authorization: Bearer `<token>`
+- Accept: application/json
+<RequestExample>
+### Request Body
+
+The request body should contain an object with the following field:
+- `llmId`: String (required) - The ID of the LLM to be added to the agent.
+
+Example request using `curl`:
+
+```bash name="Curl"
+curl -X POST \
+     --url "https://api.gptlab.cloud/api/v1/agents/:agent_id/llms" \
+     --header "Content-Type: application/json" \
+     --header "Authorization: Bearer <token>" \
+     --header "Accept: application/json" \
+     --data '
+{
+  "llmId": "string"
+}
+'
+</RequestExample>

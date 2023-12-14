@@ -1,32 +1,40 @@
 ---
-title: 'Get Agent'
-api: 'GET /api/v1/agents/:agent_id'
+title: 'Create Agent'
+api: 'POST /api/v1/agents'
 ---
 
-This endpoint retrieves the details of a single agent identified by `agent_id`.
+This endpoint creates a new agent.
 
 ## HTTP Request
 
-`GET https://api.gptlab.cloud/api/v1/agents/:agent_id`
+`POST https://api.gptlab.cloud/api/v1/agents`
 
 ### Headers
 
+- Content-Type: application/json
 - Authorization: Bearer `<token>`
 - Accept: application/json
 
-### Path Parameters
+### Request Body
 
-- `agent_id`: string (The unique identifier of the agent)
+The request body should contain an object with the following fields:
+- `isActive`: Optional boolean
+- `name`: String (required)
+- `initialMessage`: Optional string
+- `prompt`: Optional string
+- `llmModel`: String (required)
+- `description`: String (required)
+- `avatar`: Optional string
 
-## Response
 
-The response provides a JSON object indicating success and containing the detailed information of the specified agent. It includes the agent's ID, name, avatar, initial message, description, activation status, timestamps of creation and update, and associated elements like LLMs, datasources, tools, and workflow steps.
+
+
+
+Response
+The response will return a JSON object indicating the success of the operation and details of the created agent.
 
 <ResponseExample>
 ````md ResponseExample Syntax
-<ResponseExample>
-
-```json Response
 {
   "success": true,
   "data": {
@@ -38,16 +46,10 @@ The response provides a JSON object indicating success and containing the detail
     "isActive": true,
     "createdAt": "2023-01-01T00:00:00Z",
     "updatedAt": "2023-01-01T00:00:00Z",
-    "llms": [...],
-    "llmModel": "GPT_3_5_TURBO_16K_0613",
-    "prompt": "string",
-    "apiUserId": "string",
-    "apiUser": {...},
-    "datasources": [...],
-    "tools": [...],
-    "workflowSteps": [...]
+    ... // Additional response fields
   }
 }
-</ResponseExample>
 ````
+</ResponseExample>
 ```
+
