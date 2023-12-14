@@ -3,7 +3,7 @@ title: 'Add LLM to Agent'
 api: 'POST /api/v1/agents/:agent_id/llms'
 ---
 
-This endpoint adds an LLM to a specific agent.
+This endpoint adds a Language Model (LLM) to an agent.
 
 ## HTTP Request
 
@@ -11,30 +11,74 @@ This endpoint adds an LLM to a specific agent.
 
 ### Path Parameters
 
-- `agent_id`: String (required) - The ID of the agent to which the LLM will be added.
+- `agent_id`: The ID of the agent to which the LLM will be added.
 
 ### Headers
 
 - Content-Type: application/json
 - Authorization: Bearer `<token>`
-- Accept: application/json
+
 <RequestExample>
-### Request Body
 
-The request body should contain an object with the following field:
-- `llmId`: String (required) - The ID of the LLM to be added to the agent.
-
-Example request using `curl`:
-
-```bash name="Curl"
+```bash
 curl -X POST \
      --url "https://api.gptlab.cloud/api/v1/agents/:agent_id/llms" \
      --header "Content-Type: application/json" \
      --header "Authorization: Bearer <token>" \
-     --header "Accept: application/json" \
      --data '
 {
-  "llmId": "string"
+  "llmId": "your-llm-id"
 }
-'
+```
 </RequestExample>
+
+Request Body
+The request body must include:
+
+- llmId: String (required) - The ID of the LLM to be added.
+
+
+Response
+The response will return a JSON object indicating the success of the operation and details of the LLM added to the agent.
+
+
+<ResponseExample>
+````md ResponseExample Syntax
+
+{
+  "success": true,
+  "data": {
+    "id": "agent-id",
+    "name": "Agent Name",
+    "avatar": "Agent Avatar URL",
+    "initialMessage": "Initial Message for Agent",
+    "description": "Description of the Agent",
+    "isActive": true,
+    "createdAt": "datetime",
+    "updatedAt": "datetime",
+    "llms": [
+      {
+        "llmId": "your-llm-id",
+        // ... other LLM details ...
+      }
+    ],
+    "llmModel": "LLM Enumeration Value",
+    "prompt": "Agent Prompt",
+    "apiUserId": "API User ID",
+    "apiUser": {
+      // ... API user details ...
+    },
+    "datasources": [
+      // ... datasource details ...
+    ],
+    "tools": [
+      // ... tool details ...
+    ],
+    "workflowSteps": [
+      // ... workflow step details ...
+    ]
+  }
+}
+````
+</ResponseExample>
+```

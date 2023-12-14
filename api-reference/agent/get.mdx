@@ -2,3 +2,64 @@
 title: 'Get Agent'
 api: 'GET /api/v1/agents/:agent_id'
 ---
+
+This endpoint retrieves the details of a single agent.
+
+## HTTP Request
+
+`GET https://api.gptlab.cloud/api/v1/agents/:agent_id`
+
+### Path Parameters
+
+- `agent_id`: The ID of the agent to retrieve.
+
+<RequestExample>
+
+```bash
+curl --url "https://api.gptlab.cloud/api/v1/agents/:agent_id" \
+     --header "Authorization: Bearer <token>" \
+     --header "Accept: application/json"
+```
+
+</RequestExample>
+
+
+Response
+The response returns a JSON object containing the details of the agent.
+
+<ResponseExample>
+````md ResponseExample Syntax{
+  "success": true,
+  "data": {
+    "id": "agent-id",
+    "name": "Agent Name",
+    "avatar": "Agent Avatar URL",
+    "initialMessage": "Initial Message for Agent",
+    "description": "Description of the Agent",
+    "isActive": true,
+    "createdAt": "ISO 8601 datetime",
+    "updatedAt": "ISO 8601 datetime",
+    "llms": [
+      // List of LLMs associated with the agent
+    ],
+    "llmModel": "LLM Enumeration Value",
+    "prompt": "Agent Prompt",
+    "apiUserId": "API User ID",
+    "apiUser": {
+      // API user details
+    },
+    "datasources": [
+      // List of datasources associated with the agent
+    ],
+    "tools": [
+      // List of tools associated with the agent
+    ],
+    "workflowSteps": [
+      // List of workflow steps associated with the agent
+    ]
+  }
+}
+
+````
+</ResponseExample>
+```

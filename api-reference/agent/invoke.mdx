@@ -1,3 +1,61 @@
 ---
-openapi: post /api/v1/agents/{agent_id}/invoke
+title: 'Invoke Agent'
+api: 'POST /api/v1/agents/:agent_id/invoke'
 ---
+
+This endpoint invokes a specific agent.
+
+## HTTP Request
+
+`POST https://api.gptlab.cloud/api/v1/agents/:agent_id/invoke`
+
+### Path Parameters
+
+- `agent_id`: The ID of the agent to be invoked.
+
+### Headers
+
+- Content-Type: application/json
+- Authorization: Bearer `<token>`
+- Accept: application/json
+
+<RequestExample>
+
+```bash
+curl -X POST \
+     --url "https://api.gptlab.cloud/api/v1/agents/:agent_id/invoke" \
+     --header "Content-Type: application/json" \
+     --header "Authorization: Bearer <token>" \
+     --header "Accept: application/json" \
+     --data '
+{
+  "input": "string",
+  "enableStreaming": true
+}
+```
+</RequestExample>
+
+### Request Body
+
+The request body should contain an object with the following fields:
+
+- input: String (required) - The input for the agent.
+- sessionId: Optional string - The session identifier for the invocation.
+- enableStreaming: Boolean (required) - Flag to enable streaming.
+- outputSchema: Optional string - The schema for the output.
+
+### Response
+
+The response returns a JSON object indicating the success of the operation and the response data from the agent invocation.
+
+
+<ResponseExample>
+````md ResponseExample Syntax
+
+{
+  "success": true,
+  "data": {}
+}
+````
+</ResponseExample>
+```

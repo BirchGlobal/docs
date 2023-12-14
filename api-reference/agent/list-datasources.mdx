@@ -1,3 +1,55 @@
 ---
-openapi: get /api/v1/agents/{agent_id}/datasources
+title: 'List Agent Datasources'
+api: 'GET /api/v1/agents/:agent_id/datasources'
 ---
+
+This endpoint lists all datasources associated with a specific agent.
+
+## HTTP Request
+
+`GET https://api.gptlab.cloud/api/v1/agents/:agent_id/datasources`
+
+### Path Parameters
+
+- `agent_id`: The ID of the agent whose datasources are to be listed.
+
+
+<RequestExample>
+
+```bash
+curl -X GET \
+     --url "https://api.gptlab.cloud/api/v1/agents/:agent_id/datasources" \
+     --header "Authorization: Bearer <token>"
+```
+
+</RequestExample>
+
+
+Response
+The response returns a JSON object containing a list of datasources associated with the agent.
+
+<ResponseExample>
+````md ResponseExample Syntax{
+
+  "success": true,
+  "data": [
+    {
+      "agentId": "agent-id",
+      "datasourceId": "datasource-id",
+      "agent": {
+        // Agent object details
+      },
+      "datasource": {
+        // Datasource object details
+      },
+      "createdAt": "ISO 8601 datetime",
+      "updatedAt": "ISO 8601 datetime"
+    }
+    // ... additional datasources ...
+  ]
+}
+
+
+````
+</ResponseExample>
+```

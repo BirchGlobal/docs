@@ -1,3 +1,30 @@
 ---
-openapi: delete /api/v1/agents/{agent_id}/llms/{llm_id}
+title: 'Remove LLM from Agent'
+api: 'DELETE /api/v1/agents/:agent_id/llms/:llm_id'
 ---
+
+This endpoint removes a specific Language Model (LLM) from an agent.
+
+## HTTP Request
+
+`DELETE https://api.gptlab.cloud/api/v1/agents/:agent_id/llms/:llm_id`
+
+### Path Parameters
+
+- `agent_id`: The ID of the agent from which the LLM will be removed.
+- `llm_id`: The ID of the LLM to be removed from the agent.
+
+<RequestExample>
+
+```bash
+curl -X DELETE \
+     --url "https://api.gptlab.cloud/api/v1/agents/:agent_id/llms/:llm_id" \
+     --header "Authorization: Bearer <token>" \
+     --header "Accept: application/json"
+```
+
+</RequestExample>
+
+Response
+The response to this request will generally indicate the success or failure of the operation. The actual content of the response may vary depending on the API's implementation.
+

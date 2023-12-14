@@ -9,39 +9,77 @@ This endpoint adds a datasource to a specific agent.
 
 `POST https://api.gptlab.cloud/api/v1/agents/:agent_id/datasources`
 
+### Path Parameters
+
+- `agent_id`: The ID of the agent to which the datasource will be added.
+
 ### Headers
 
 - Content-Type: application/json
 - Authorization: Bearer `<token>`
 
-## Response
+<RequestExample>
 
-The response returns a JSON object indicating the success of the operation and details of the agent to which the datasource was added
+```bash
+curl -X POST \
+     --url "https://api.gptlab.cloud/api/v1/agents/:agent_id/datasources" \
+     --header "Content-Type: application/json" \
+     --header "Authorization: Bearer <token>" \
+     --data '
+{
+  "datasourceId": "your-datasource-id"
+}
+
+```
+
+</RequestExample>
+
+Request Body
+The request body should include:
+
+- datasourceId: String (required) - The ID of the datasource to be added to the agent.
+
+
+Response
+The response will return a JSON object indicating the success of the operation and details of the datasource added to the agent.
+
+
+
 
 <ResponseExample>
 ````md ResponseExample Syntax
-
 {
   "success": true,
   "data": {
-    "id": "string",
-    "name": "string",
-    "avatar": "string",
-    "initialMessage": "string",
-    "description": "string",
+    "id": "agent-id",
+    "name": "Agent Name",
+    "avatar": "Agent Avatar URL",
+    "initialMessage": "Initial Message for Agent",
+    "description": "Description of the Agent",
     "isActive": true,
-    "createdAt": "2023-01-01T00:00:00Z",
-    "updatedAt": "2023-01-01T00:00:00Z",
-    "llms": [...],
-    "llmModel": "GPT_3_5_TURBO_16K_0613",
-    "prompt": "string",
-    "apiUserId": "string",
-    "apiUser": {...},
-    "datasources": [...],
-    "tools": [...],
-    "workflowSteps": [...]
+    "createdAt": "ISO 8601 datetime",
+    "updatedAt": "ISO 8601 datetime",
+    "llms": [
+      // List of LLMs associated with the agent
+    ],
+    "llmModel": "LLM Enumeration Value",
+    "prompt": "Agent Prompt",
+    "apiUserId": "API User ID",
+    "apiUser": {
+      // API user details
+    },
+    "datasources": [
+      // List of datasources, including the newly added datasource
+    ],
+    "tools": [
+      // List of tools associated with the agent
+    ],
+    "workflowSteps": [
+      // List of workflow steps associated with the agent
+    ]
   }
 }
+
 
 ````
 </ResponseExample>

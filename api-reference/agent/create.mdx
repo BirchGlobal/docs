@@ -5,6 +5,26 @@ api: 'POST /api/v1/agents'
 
 This endpoint creates a new agent.
 
+
+<RequestExample>
+
+```bash
+curl -X POST \
+     --url "https://api.gptlab.cloud/api/v1/agents" \
+     --header "Content-Type: application/json" \
+     --header "Authorization: Bearer <token>" \
+     --header "Accept: application/json" \
+     --data '
+{
+  "name": "string",
+  "llmModel": "string",
+  "description": "string"
+}
+```
+</RequestExample>
+
+
+
 ## HTTP Request
 
 `POST https://api.gptlab.cloud/api/v1/agents`
@@ -46,7 +66,474 @@ The response will return a JSON object indicating the success of the operation a
     "isActive": true,
     "createdAt": "2023-01-01T00:00:00Z",
     "updatedAt": "2023-01-01T00:00:00Z",
-    ... // Additional response fields
+    "llms": [
+      {
+        "agentId": "string",
+        "llmId": "string",
+        "llm": {
+          "id": "string",
+          "provider": "OPENAI",
+          "apiKey": "string",
+          "options": "string",
+          "agents": [],
+          "createdAt": "2023-01-01T00:00:00Z",
+          "updatedAt": "2023-01-01T00:00:00Z",
+          "apiUserId": "string",
+          "apiUser": {
+            "id": "string",
+            "token": "string",
+            "email": "string",
+            "createdAt": "2023-01-01T00:00:00Z",
+            "updatedAt": "2023-01-01T00:00:00Z",
+            "agents": [],
+            "llms": [],
+            "datasources": [
+              {
+                "id": "string",
+                "name": "string",
+                "content": "string",
+                "description": "string",
+                "url": "string",
+                "type": "TXT",
+                "apiUserId": "string",
+                "createdAt": "2023-01-01T00:00:00Z",
+                "updatedAt": "2023-01-01T00:00:00Z",
+                "metadata": "string",
+                "status": "IN_PROGRESS",
+                "datasources": [
+                  {
+                    "agentId": "string",
+                    "datasourceId": "string",
+                    "createdAt": "2023-01-01T00:00:00Z",
+                    "updatedAt": "2023-01-01T00:00:00Z"
+                  }
+                ]
+              }
+            ],
+            "tools": [
+              {
+                "id": "string",
+                "name": "string",
+                "description": "string",
+                "type": "ALGOLIA",
+                "returnDirect": true,
+                "metadata": "string",
+                "createdAt": "2023-01-01T00:00:00Z",
+                "updatedAt": "2023-01-01T00:00:00Z",
+                "apiUserId": "string",
+                "tools": [
+                  {
+                    "agentId": "string",
+                    "toolId": "string",
+                    "createdAt": "2023-01-01T00:00:00Z",
+                    "updatedAt": "2023-01-01T00:00:00Z"
+                  }
+                ]
+              }
+            ],
+            "workflows": [
+              {
+                "id": "string",
+                "name": "string",
+                "description": "string",
+                "createdAt": "2023-01-01T00:00:00Z",
+                "updatedAt": "2023-01-01T00:00:00Z",
+                "steps": [
+                  {
+                    "id": "string",
+                    "order": 0,
+                    "workflowId": "string",
+                    "createdAt": "2023-01-01T00:00:00Z",
+                    "updatedAt": "2023-01-01T00:00:00Z",
+                    "input": "string",
+                    "output": "string",
+                    "agentId": "string"
+                  }
+                ],
+                "apiUserId": "string"
+              }
+            ]
+          }
+        },
+        "createdAt": "2023-01-01T00:00:00Z",
+        "updatedAt": "2023-01-01T00:00:00Z"
+      }
+    ],
+    "llmModel": "GPT_3_5_TURBO_16K_0613",
+    "prompt": "string",
+    "apiUserId": "string",
+    "apiUser": {
+      "id": "string",
+      "token": "string",
+      "email": "string",
+      "createdAt": "2023-01-01T00:00:00Z",
+      "updatedAt": "2023-01-01T00:00:00Z",
+      "agents": [],
+      "llms": [
+        {
+          "id": "string",
+          "provider": "OPENAI",
+          "apiKey": "string",
+          "options": "string",
+          "agents": [
+            {
+              "agentId": "string",
+              "llmId": "string",
+              "createdAt": "2023-01-01T00:00:00Z",
+              "updatedAt": "2023-01-01T00:00:00Z"
+            }
+          ],
+          "createdAt": "2023-01-01T00:00:00Z",
+          "updatedAt": "2023-01-01T00:00:00Z",
+          "apiUserId": "string"
+        }
+      ],
+      "datasources": [
+        {
+          "id": "string",
+          "name": "string",
+          "content": "string",
+          "description": "string",
+          "url": "string",
+          "type": "TXT",
+          "apiUserId": "string",
+          "createdAt": "2023-01-01T00:00:00Z",
+          "updatedAt": "2023-01-01T00:00:00Z",
+          "metadata": "string",
+          "status": "IN_PROGRESS",
+          "datasources": [
+            {
+              "agentId": "string",
+              "datasourceId": "string",
+              "createdAt": "2023-01-01T00:00:00Z",
+              "updatedAt": "2023-01-01T00:00:00Z"
+            }
+          ]
+        }
+      ],
+      "tools": [
+        {
+          "id": "string",
+          "name": "string",
+          "description": "string",
+          "type": "ALGOLIA",
+          "returnDirect": true,
+          "metadata": "string",
+          "createdAt": "2023-01-01T00:00:00Z",
+          "updatedAt": "2023-01-01T00:00:00Z",
+          "apiUserId": "string",
+          "tools": [
+            {
+              "agentId": "string",
+              "toolId": "string",
+              "createdAt": "2023-01-01T00:00:00Z",
+              "updatedAt": "2023-01-01T00:00:00Z"
+            }
+          ]
+        }
+      ],
+      "workflows": [
+        {
+          "id": "string",
+          "name": "string",
+          "description": "string",
+          "createdAt": "2023-01-01T00:00:00Z",
+          "updatedAt": "2023-01-01T00:00:00Z",
+          "steps": [
+            {
+              "id": "string",
+              "order": 0,
+              "workflowId": "string",
+              "createdAt": "2023-01-01T00:00:00Z",
+              "updatedAt": "2023-01-01T00:00:00Z",
+              "input": "string",
+              "output": "string",
+              "agentId": "string"
+            }
+          ],
+          "apiUserId": "string"
+        }
+      ]
+    },
+    "datasources": [
+      {
+        "agentId": "string",
+        "datasourceId": "string",
+        "datasource": {
+          "id": "string",
+          "name": "string",
+          "content": "string",
+          "description": "string",
+          "url": "string",
+          "type": "TXT",
+          "apiUserId": "string",
+          "apiUser": {
+            "id": "string",
+            "token": "string",
+            "email": "string",
+            "createdAt": "2023-01-01T00:00:00Z",
+            "updatedAt": "2023-01-01T00:00:00Z",
+            "agents": [],
+            "llms": [
+              {
+                "id": "string",
+                "provider": "OPENAI",
+                "apiKey": "string",
+                "options": "string",
+                "agents": [
+                  {
+                    "agentId": "string",
+                    "llmId": "string",
+                    "createdAt": "2023-01-01T00:00:00Z",
+                    "updatedAt": "2023-01-01T00:00:00Z"
+                  }
+                ],
+                "createdAt": "2023-01-01T00:00:00Z",
+                "updatedAt": "2023-01-01T00:00:00Z",
+                "apiUserId": "string"
+              }
+            ],
+            "datasources": [],
+            "tools": [
+              {
+                "id": "string",
+                "name": "string",
+                "description": "string",
+                "type": "ALGOLIA",
+                "returnDirect": true,
+                "metadata": "string",
+                "createdAt": "2023-01-01T00:00:00Z",
+                "updatedAt": "2023-01-01T00:00:00Z",
+                "apiUserId": "string",
+                "tools": [
+                  {
+                    "agentId": "string",
+                    "toolId": "string",
+                    "createdAt": "2023-01-01T00:00:00Z",
+                    "updatedAt": "2023-01-01T00:00:00Z"
+                  }
+                ]
+              }
+            ],
+            "workflows": [
+              {
+                "id": "string",
+                "name": "string",
+                "description": "string",
+                "createdAt": "2023-01-01T00:00:00Z",
+                "updatedAt": "2023-01-01T00:00:00Z",
+                "steps": [
+                  {
+                    "id": "string",
+                    "order": 0,
+                    "workflowId": "string",
+                    "createdAt": "2023-01-01T00:00:00Z",
+                    "updatedAt": "2023-01-01T00:00:00Z",
+                    "input": "string",
+                    "output": "string",
+                    "agentId": "string"
+                  }
+                ],
+                "apiUserId": "string"
+              }
+            ]
+          },
+          "createdAt": "2023-01-01T00:00:00Z",
+          "updatedAt": "2023-01-01T00:00:00Z",
+          "metadata": "string",
+          "status": "IN_PROGRESS",
+          "datasources": []
+        },
+        "createdAt": "2023-01-01T00:00:00Z",
+        "updatedAt": "2023-01-01T00:00:00Z"
+      }
+    ],
+    "tools": [
+      {
+        "agentId": "string",
+        "toolId": "string",
+        "tool": {
+          "id": "string",
+          "name": "string",
+          "description": "string",
+          "type": "ALGOLIA",
+          "returnDirect": true,
+          "metadata": "string",
+          "createdAt": "2023-01-01T00:00:00Z",
+          "updatedAt": "2023-01-01T00:00:00Z",
+          "apiUserId": "string",
+          "apiUser": {
+            "id": "string",
+            "token": "string",
+            "email": "string",
+            "createdAt": "2023-01-01T00:00:00Z",
+            "updatedAt": "2023-01-01T00:00:00Z",
+            "agents": [],
+            "llms": [
+              {
+                "id": "string",
+                "provider": "OPENAI",
+                "apiKey": "string",
+                "options": "string",
+                "agents": [
+                  {
+                    "agentId": "string",
+                    "llmId": "string",
+                    "createdAt": "2023-01-01T00:00:00Z",
+                    "updatedAt": "2023-01-01T00:00:00Z"
+                  }
+                ],
+                "createdAt": "2023-01-01T00:00:00Z",
+                "updatedAt": "2023-01-01T00:00:00Z",
+                "apiUserId": "string"
+              }
+            ],
+            "datasources": [
+              {
+                "id": "string",
+                "name": "string",
+                "content": "string",
+                "description": "string",
+                "url": "string",
+                "type": "TXT",
+                "apiUserId": "string",
+                "createdAt": "2023-01-01T00:00:00Z",
+                "updatedAt": "2023-01-01T00:00:00Z",
+                "metadata": "string",
+                "status": "IN_PROGRESS",
+                "datasources": [
+                  {
+                    "agentId": "string",
+                    "datasourceId": "string",
+                    "createdAt": "2023-01-01T00:00:00Z",
+                    "updatedAt": "2023-01-01T00:00:00Z"
+                  }
+                ]
+              }
+            ],
+            "tools": [],
+            "workflows": [
+              {
+                "id": "string",
+                "name": "string",
+                "description": "string",
+                "createdAt": "2023-01-01T00:00:00Z",
+                "updatedAt": "2023-01-01T00:00:00Z",
+                "steps": [
+                  {
+                    "id": "string",
+                    "order": 0,
+                    "workflowId": "string",
+                    "createdAt": "2023-01-01T00:00:00Z",
+                    "updatedAt": "2023-01-01T00:00:00Z",
+                    "input": "string",
+                    "output": "string",
+                    "agentId": "string"
+                  }
+                ],
+                "apiUserId": "string"
+              }
+            ]
+          },
+          "tools": []
+        },
+        "createdAt": "2023-01-01T00:00:00Z",
+        "updatedAt": "2023-01-01T00:00:00Z"
+      }
+    ],
+    "workflowSteps": [
+      {
+        "id": "string",
+        "order": 0,
+        "workflowId": "string",
+        "workflow": {
+          "id": "string",
+          "name": "string",
+          "description": "string",
+          "createdAt": "2023-01-01T00:00:00Z",
+          "updatedAt": "2023-01-01T00:00:00Z",
+          "steps": [],
+          "apiUserId": "string",
+          "apiUser": {
+            "id": "string",
+            "token": "string",
+            "email": "string",
+            "createdAt": "2023-01-01T00:00:00Z",
+            "updatedAt": "2023-01-01T00:00:00Z",
+            "agents": [],
+            "llms": [
+              {
+                "id": "string",
+                "provider": "OPENAI",
+                "apiKey": "string",
+                "options": "string",
+                "agents": [
+                  {
+                    "agentId": "string",
+                    "llmId": "string",
+                    "createdAt": "2023-01-01T00:00:00Z",
+                    "updatedAt": "2023-01-01T00:00:00Z"
+                  }
+                ],
+                "createdAt": "2023-01-01T00:00:00Z",
+                "updatedAt": "2023-01-01T00:00:00Z",
+                "apiUserId": "string"
+              }
+            ],
+            "datasources": [
+              {
+                "id": "string",
+                "name": "string",
+                "content": "string",
+                "description": "string",
+                "url": "string",
+                "type": "TXT",
+                "apiUserId": "string",
+                "createdAt": "2023-01-01T00:00:00Z",
+                "updatedAt": "2023-01-01T00:00:00Z",
+                "metadata": "string",
+                "status": "IN_PROGRESS",
+                "datasources": [
+                  {
+                    "agentId": "string",
+                    "datasourceId": "string",
+                    "createdAt": "2023-01-01T00:00:00Z",
+                    "updatedAt": "2023-01-01T00:00:00Z"
+                  }
+                ]
+              }
+            ],
+            "tools": [
+              {
+                "id": "string",
+                "name": "string",
+                "description": "string",
+                "type": "ALGOLIA",
+                "returnDirect": true,
+                "metadata": "string",
+                "createdAt": "2023-01-01T00:00:00Z",
+                "updatedAt": "2023-01-01T00:00:00Z",
+                "apiUserId": "string",
+                "tools": [
+                  {
+                    "agentId": "string",
+                    "toolId": "string",
+                    "createdAt": "2023-01-01T00:00:00Z",
+                    "updatedAt": "2023-01-01T00:00:00Z"
+                  }
+                ]
+              }
+            ],
+            "workflows": []
+          }
+        },
+        "createdAt": "2023-01-01T00:00:00Z",
+        "updatedAt": "2023-01-01T00:00:00Z",
+        "input": "string",
+        "output": "string",
+        "agentId": "string"
+      }
+    ]
   }
 }
 ````

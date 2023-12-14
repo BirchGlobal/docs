@@ -69,11 +69,12 @@
         {
           "group": "Agent",
           "pages": [
+
+            "api-reference/agent/create",
+            "api-reference/agent/invoke",
             "api-reference/agent/add-datasource",
             "api-reference/agent/add-llm",
             "api-reference/agent/add-tool",
-            "api-reference/agent/create",
-            "api-reference/agent/invoke",
             "api-reference/agent/get",
             "api-reference/agent/list-datasources",
             "api-reference/agent/list-runs",

@@ -1,3 +1,85 @@
 ---
-openapi: post /api/v1/agents/{agent_id}/tools
+title: 'Add Tool to Agent'
+api: 'POST /api/v1/agents/:agent_id/tools'
 ---
+
+This endpoint associates a tool with a specific agent.
+
+## HTTP Request
+
+`POST https://api.gptlab.cloud/api/v1/agents/:agent_id/tools`
+
+### Path Parameters
+
+- `agent_id`: The ID of the agent to which the tool will be added.
+
+### Headers
+
+- Content-Type: application/json
+- Authorization: Bearer `<token>`
+
+<RequestExample>
+
+```bash
+curl -X POST \
+     --url "https://api.gptlab.cloud/api/v1/agents/:agent_id/tools" \
+     --header "Content-Type: application/json" \
+     --header "Authorization: Bearer <token>" \
+     --data '
+{
+  "toolId": "your-tool-id"
+}
+
+```
+</RequestExample>
+
+
+
+Request Body
+The request body should include:
+
+- toolId: String (required) - The ID of the tool to be added to the agent.
+
+Response
+The response will return a JSON object indicating the success of the operation and details of the tool added to the agent.
+
+
+
+<ResponseExample>
+````md ResponseExample Syntax
+{
+  "success": true,
+  "data": {
+    "id": "agent-id",
+    "name": "Agent Name",
+    "avatar": "Agent Avatar URL",
+    "initialMessage": "Initial Message for Agent",
+    "description": "Description of the Agent",
+    "isActive": true,
+    "createdAt": "datetime",
+    "updatedAt": "datetime",
+    "llms": [
+      // List of LLMs associated with the agent
+    ],
+    "llmModel": "LLM Enumeration Value",
+    "prompt": "Agent Prompt",
+    "apiUserId": "API User ID",
+    "apiUser": {
+      // API user details
+    },
+    "datasources": [
+      // List of datasources associated with the agent
+    ],
+    "tools": [
+      // List of tools, including the newly added tool
+    ],
+    "workflowSteps": [
+      // List of workflow steps associated with the agent
+    ]
+  }
+}
+
+
+````
+</ResponseExample>
+```

@@ -1,3 +1,70 @@
 ---
-openapi: patch /api/v1/agents/{agent_id}
+title: 'Update Agent'
+api: 'PATCH /api/v1/agents/:agent_id'
 ---
+
+This endpoint updates specific details of an existing agent.
+
+## HTTP Request
+
+`PATCH https://api.gptlab.cloud/api/v1/agents/:agent_id`
+
+### Path Parameters
+
+- `agent_id`: The ID of the agent to be updated.
+
+### Request Body
+
+The request body should contain an object with fields that you want to update. Fields are:
+
+- `isActive`: Optional boolean
+- `name`: String (required)
+- `initialMessage`: Optional string
+- `prompt`: Optional string
+- `llmModel`: String (required)
+- `description`: String (required)
+- `avatar`: Optional string
+
+<RequestExample>
+
+```bash
+curl -X PATCH \
+     --url "https://api.gptlab.cloud/api/v1/agents/:agent_id" \
+     --header "Content-Type: application/json" \
+     --header "Authorization: Bearer <token>" \
+     --data '
+{
+  "isActive": true,
+  "name": "Updated Agent Name",
+  "initialMessage": "New Initial Message",
+  "prompt": "New Prompt",
+  "llmModel": "New LLM Model",
+  "description": "Updated Description",
+  "avatar": "New Avatar URL"
+}
+'
+```
+
+</RequestExample>
+
+
+<ResponseExample>
+````md ResponseExample Syntax
+
+{
+  "success": true,
+  "data": {
+    "id": "agent-id",
+    "name": "Updated Agent Name",
+    "avatar": "New Avatar URL",
+    "initialMessage": "New Initial Message",
+    "description": "Updated Description",
+    "isActive": true,
+    "llmModel": "New LLM Model",
+    "prompt": "New Prompt",
+    // Additional response fields...
+  }
+}
+````
+</ResponseExample>
+```
