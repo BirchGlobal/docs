@@ -1,3 +1,60 @@
 ---
-openapi: get /api/v1/tools
+title: 'List Tools'
+api: 'GET /api/v1/tools'
 ---
+
+This endpoint retrieves a list of all tools.
+
+## HTTP Request
+
+`GET https://api.gptlab.cloud/api/v1/tools`
+
+<RequestExample>
+
+```bash
+curl -X GET \
+     --url "https://api.gptlab.cloud/api/v1/tools" \
+     --header "Authorization: Bearer <token>"
+```
+
+</RequestExample>
+
+### Response
+The response returns a JSON object containing a list of all tools with their details.
+
+
+
+
+
+<ResponseExample>
+````md ResponseExample Syntax
+{
+  "success": true,
+  "data": [
+    {
+      "id": "tool-id",
+      "name": "Tool Name",
+      "description": "Tool Description",
+      "type": "Tool Type",
+      "returnDirect": true or false,
+      "metadata": "Tool Metadata",
+      "createdAt": "ISO 8601 datetime",
+      "updatedAt": "ISO 8601 datetime",
+      "apiUserId": "api-user-id",
+      "apiUser": {
+        // API user object details
+      },
+      "tools": [
+        // Additional nested tools details
+      ]
+    }
+    // ... additional tools ...
+  ]
+}
+
+
+
+
+````
+</ResponseExample>
+```

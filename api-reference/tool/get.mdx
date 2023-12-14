@@ -1,3 +1,55 @@
 ---
-openapi: get /api/v1/tools/{tool_id}
+title: 'Get Tool'
+api: 'GET /api/v1/tools/:tool_id'
 ---
+
+This endpoint retrieves details of a specific tool.
+
+## HTTP Request
+
+`GET https://api.gptlab.cloud/api/v1/tools/:tool_id`
+
+### Path Parameters
+
+- `tool_id`: The ID of the tool to retrieve.
+
+<RequestExample>
+
+```bash
+curl -X GET \
+     --url "https://api.gptlab.cloud/api/v1/tools/:tool_id" \
+     --header "Authorization: Bearer <token>"
+```
+
+</RequestExample>
+
+### Response
+The response returns a JSON object containing the details of the specified tool.
+
+
+
+<ResponseExample>
+````md ResponseExample Syntax{
+  "success": true,
+  "data": {
+    "id": "tool-id",
+    "name": "Tool Name",
+    "description": "Tool Description",
+    "type": "Tool Type",
+    "returnDirect": true or false,
+    "metadata": "Tool Metadata",
+    "createdAt": "ISO 8601 datetime",
+    "updatedAt": "ISO 8601 datetime",
+    "apiUserId": "api-user-id",
+    "apiUser": {
+      // API user object details
+    },
+    "tools": [
+      // Additional nested tools details
+    ]
+  }
+}
+
+````
+</ResponseExample>
+```

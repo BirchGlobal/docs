@@ -1,3 +1,55 @@
 ---
-openapi: get /api/v1/datasources/{datasource_id}
+title: 'Get Datasource'
+api: 'GET /api/v1/datasources/:datasource_id'
 ---
+
+This endpoint retrieves the details of a specific datasource.
+
+## HTTP Request
+
+`GET https://api.gptlab.cloud/api/v1/datasources/:datasource_id`
+
+### Path Parameters
+
+- `datasource_id`: The ID of the datasource to retrieve.
+
+<RequestExample>
+
+```bash
+curl -X GET \
+     --url "https://api.gptlab.cloud/api/v1/datasources/:datasource_id" \
+     --header "Authorization: Bearer <token>"
+```
+
+</RequestExample>
+
+
+
+
+<ResponseExample>
+````md ResponseExample Syntax{
+  "success": true,
+  "data": {
+    "id": "datasource-id",
+    "name": "Datasource Name",
+    "content": "Datasource Content",
+    "description": "Datasource Description",
+    "url": "Datasource URL",
+    "type": "Datasource Type",
+    "apiUserId": "api-user-id",
+    "apiUser": {
+      // API user object details
+    },
+    "createdAt": "ISO 8601 datetime",
+    "updatedAt": "ISO 8601 datetime",
+    "metadata": "Datasource Metadata",
+    "status": "Datasource Status",
+    "datasources": [
+      // Additional nested datasources details
+    ]
+  }
+}
+
+````
+</ResponseExample>
+```

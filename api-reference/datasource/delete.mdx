@@ -1,3 +1,28 @@
 ---
-openapi: delete /api/v1/datasources/{datasource_id}
+title: 'Delete Datasource'
+api: 'DELETE /api/v1/datasources/:datasource_id'
 ---
+
+This endpoint deletes a specific datasource.
+
+## HTTP Request
+
+`DELETE https://api.gptlab.cloud/api/v1/datasources/:datasource_id`
+
+### Path Parameters
+
+- `datasource_id`: The ID of the datasource to be deleted.
+
+<RequestExample>
+
+```bash
+curl -X DELETE \
+     --url "https://api.gptlab.cloud/api/v1/datasources/:datasource_id" \
+     --header "Authorization: Bearer <token>"
+```
+
+</RequestExample>
+
+
+### Response
+The response for this request will typically indicate whether the deletion was successful. The actual content of the response may vary depending on the API's implementation.

@@ -1,3 +1,89 @@
 ---
-openapi: patch /api/v1/datasources/{datasource_id}
+title: 'Update Datasource'
+api: 'PATCH /api/v1/datasources/:datasource_id'
 ---
+
+This endpoint updates specific details of an existing datasource.
+
+## HTTP Request
+
+`PATCH https://api.gptlab.cloud/api/v1/datasources/:datasource_id`
+
+### Path Parameters
+
+- `datasource_id`: The ID of the datasource to be updated.
+
+### Request Body
+
+The request body should contain an object with fields that you want to update. Fields are:
+
+- `name`: String - The name of the datasource.
+- `description`: String - A brief description of the datasource.
+- `type`: String - The type of the datasource.
+- `content`: Optional string - The content of the datasource, if applicable.
+- `url`: Optional string - The URL of the datasource, if applicable.
+- `metadata`: Optional map from strings to any - Additional metadata for the datasource.
+
+<RequestExample>
+
+```bash
+curl -X PATCH \
+     --url "https://api.gptlab.cloud/api/v1/datasources/:datasource_id" \
+     --header "Content-Type: application/json" \
+     --header "Authorization: Bearer <token>" \
+     --data '
+{
+  "name": "Updated Datasource Name",
+  "description": "Updated Description",
+  "type": "Updated Type",
+  "content": "Updated Content",
+  "url": "Updated URL",
+  "metadata": {
+    "key1": "value1",
+    "key2": "value2"
+  }
+}
+
+```
+
+</RequestExample>
+
+### Response
+The response will return a JSON object indicating the success of the operation and the updated details of the datasource.
+
+
+
+
+<ResponseExample>
+````md ResponseExample Syntax
+{
+  "success": true,
+  "data": {
+    "id": "datasource-id",
+    "name": "Updated Datasource Name",
+    "content": "Updated Content",
+    "description": "Updated Description",
+    "url": "Updated URL",
+    "type": "Updated Type",
+    "apiUserId": "api-user-id",
+    "apiUser": {
+      // API user object details
+    },
+    "createdAt": "ISO 8601 datetime",
+    "updatedAt": "ISO 8601 datetime",
+    "metadata": {
+      "key1": "value1",
+      "key2": "value2"
+    },
+    "status": "Updated Status",
+    "datasources": [
+      // Additional nested datasources details
+    ]
+  }
+}
+
+
+
+````
+</ResponseExample>
+```

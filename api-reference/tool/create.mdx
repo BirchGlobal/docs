@@ -1,3 +1,75 @@
 ---
-openapi: post /api/v1/tools
+title: 'Create Tool'
+api: 'POST /api/v1/tools'
 ---
+
+This endpoint creates a new tool.
+
+## HTTP Request
+
+`POST https://api.gptlab.cloud/api/v1/tools`
+
+### Request Body
+
+The request body should contain an object with the following fields:
+- `name`: String (required) - The name of the tool.
+- `description`: String (required) - A brief description of the tool.
+- `type`: String (required) - The type of the tool.
+- `metadata`: Optional map from strings to any - Additional metadata for the tool.
+- `returnDirect`: Optional boolean - A flag indicating whether the tool returns direct responses.
+
+<RequestExample>
+
+```bash
+curl -X POST \
+     --url "https://api.gptlab.cloud/api/v1/tools" \
+     --header "Content-Type: application/json" \
+     --header "Authorization: Bearer <token>" \
+     --data '
+{
+  "name": "New Tool Name",
+  "description": "New Tool Description",
+  "type": "Tool Type",
+  "metadata": {
+    "key1": "value1",
+    "key2": "value2"
+  },
+  "returnDirect": true
+}
+```
+
+</RequestExample>
+
+
+### Response
+The response returns a JSON object indicating the success of the operation and details of the newly created tool.
+
+<ResponseExample>
+````md ResponseExample Syntax
+{
+  "success": true,
+  "data": [
+    {
+      "id": "llm-id",
+      "provider": "llm-provider",
+      "apiKey": "llm-apiKey",
+      "options": "llm-options",
+      "agents": [
+        // List of agents associated with the LLM
+      ],
+      "createdAt": "ISO 8601 datetime",
+      "updatedAt": "ISO 8601 datetime",
+      "apiUserId": "api-user-id",
+      "apiUser": {
+        // API user object details
+      }
+    }
+    // ... additional LLMs ...
+  ]
+}
+
+
+
+````
+</ResponseExample>
+```

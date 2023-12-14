@@ -1,3 +1,58 @@
 ---
-openapi: get /api/v1/llms
+title: 'List LLMs'
+api: 'GET /api/v1/llms'
 ---
+
+This endpoint retrieves a list of all Large Language Models (LLMs).
+
+## HTTP Request
+
+`GET https://api.gptlab.cloud/api/v1/llms`
+
+<RequestExample>
+
+```bash
+curl -X GET \
+     --url "https://api.gptlab.cloud/api/v1/llms" \
+     --header "Authorization: Bearer <token>"
+```
+
+</RequestExample>
+
+### Response
+The response returns a JSON object containing a list of all LLMs with their details.
+
+
+
+
+<ResponseExample>
+````md ResponseExample Syntax
+{
+  "success": true,
+  "data": [
+    {
+      "id": "llm-id",
+      "provider": "llm-provider",
+      "apiKey": "llm-apiKey",
+      "options": "llm-options",
+      "agents": [
+        // List of agents associated with the LLM
+      ],
+      "createdAt": "ISO 8601 datetime",
+      "updatedAt": "ISO 8601 datetime",
+      "apiUserId": "api-user-id",
+      "apiUser": {
+        // API user object details
+      }
+    }
+    // ... additional LLMs ...
+  ]
+}
+
+
+
+````
+</ResponseExample>
+```
+
+

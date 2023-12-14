@@ -1,3 +1,74 @@
 ---
-openapi: post /api/v1/llms
+title: 'Create LLM'
+api: 'POST /api/v1/llms'
 ---
+
+This endpoint creates a new Large Language Model (LLM).
+
+## HTTP Request
+
+`POST https://api.gptlab.cloud/api/v1/llms`
+
+### Request Body
+
+The request body should contain an object with the following fields:
+- `provider`: String (required) - The provider of the LLM.
+- `apiKey`: String (required) - The API key for accessing the LLM.
+- `options`: Optional map from strings to any - Additional options for the LLM.
+
+<RequestExample>
+
+```bash
+curl -X POST \
+     --url "https://api.gptlab.cloud/api/v1/llms" \
+     --header "Content-Type: application/json" \
+     --header "Authorization: Bearer <token>" \
+     --data '
+{
+  "provider": "Provider Name",
+  "apiKey": "API Key",
+  "options": {
+    "option1": "value1",
+    "option2": "value2"
+  }
+}
+```
+
+</RequestExample>
+
+### Response
+The response returns a JSON object indicating the success of the operation and details of the newly created LLM.
+
+
+
+<ResponseExample>
+````md ResponseExample Syntax{
+  
+  "success": true,
+  "data": {
+    "id": "new-llm-id",
+    "provider": "Provider Name",
+    "apiKey": "API Key",
+    "options": {
+      "option1": "value1",
+      "option2": "value2"
+    },
+    "agents": [
+      // List of agents associated with the LLM
+    ],
+    "createdAt": "ISO 8601 datetime",
+    "updatedAt": "ISO 8601 datetime",
+    "apiUserId": "api-user-id",
+    "apiUser": {
+      // API user object details
+    }
+  }
+}
+
+````
+</ResponseExample>
+```
+
+
+Response
+The response returns a JSON object indicating the success of the operation and details of the newly created tool.

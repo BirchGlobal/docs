@@ -1,3 +1,83 @@
 ---
-openapi: post /api/v1/datasources
+title: 'Create Datasource'
+api: 'POST /api/v1/datasources'
 ---
+
+This endpoint creates a new datasource.
+
+## HTTP Request
+
+`POST https://api.gptlab.cloud/api/v1/datasources`
+
+### Request Body
+
+The request body should contain an object with the following fields:
+- `name`: String (required) - The name of the datasource.
+- `description`: String (required) - A brief description of the datasource.
+- `type`: String (required) - The type of the datasource.
+- `content`: Optional string - The content of the datasource, if applicable.
+- `url`: Optional string - The URL of the datasource, if applicable.
+- `metadata`: Optional map from strings to any - Additional metadata for the datasource.
+
+<RequestExample>
+
+```bash
+curl -X POST \
+     --url "https://api.gptlab.cloud/api/v1/datasources" \
+     --header "Content-Type: application/json" \
+     --data '
+{
+  "name": "Datasource Name",
+  "description": "Datasource Description",
+  "type": "Datasource Type",
+  "content": "Datasource Content",
+  "url": "Datasource URL",
+  "metadata": {
+    "key1": "value1",
+    "key2": "value2"
+  }
+}
+'
+```
+
+</RequestExample>
+
+
+Response
+The response returns a JSON object indicating the success of the operation and details of the newly created datasource.
+
+
+
+<ResponseExample>
+````md ResponseExample Syntax
+{
+  "success": true,
+  "data": {
+    "id": "new-datasource-id",
+    "name": "Datasource Name",
+    "content": "Datasource Content",
+    "description": "Datasource Description",
+    "url": "Datasource URL",
+    "type": "Datasource Type",
+    "apiUserId": "api-user-id",
+    "apiUser": {
+      // API user object details
+    },
+    "createdAt": "ISO 8601 datetime",
+    "updatedAt": "ISO 8601 datetime",
+    "metadata": {
+      "key1": "value1",
+      "key2": "value2"
+    },
+    "status": "Datasource Status",
+    "datasources": [
+      // Additional nested datasources details
+    ]
+  }
+}
+
+
+
+````
+</ResponseExample>
+```

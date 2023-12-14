@@ -1,3 +1,77 @@
 ---
-openapi: patch /api/v1/llms/{llm_id}
+title: 'Update LLM'
+api: 'PATCH /api/v1/llms/:llm_id'
 ---
+
+This endpoint updates details of a specific Large Language Model (LLM).
+
+## HTTP Request
+
+`PATCH https://api.gptlab.cloud/api/v1/llms/:llm_id`
+
+### Path Parameters
+
+- `llm_id`: The ID of the LLM to be updated.
+
+### Request Body
+
+The request body should contain an object with fields that you want to update. Fields are:
+
+- `provider`: String - The provider of the LLM.
+- `apiKey`: String - The API key for accessing the LLM.
+- `options`: Optional map from strings to any - Additional options for the LLM.
+
+<RequestExample>
+
+```bash
+curl -X PATCH \
+     --url "https://api.gptlab.cloud/api/v1/llms/:llm_id" \
+     --header "Content-Type: application/json" \
+     --header "Authorization: Bearer <token>" \
+     --data '
+{
+  "provider": "Updated Provider Name",
+  "apiKey": "Updated API Key",
+  "options": {
+    "option1": "value1",
+    "option2": "value2"
+  }
+}
+```
+
+</RequestExample>
+
+Response
+The response will return a JSON object indicating the success of the operation and the updated details of the LLM.
+
+
+
+<ResponseExample>
+````md ResponseExample Syntax
+{
+  "success": true,
+  "data": {
+    "id": "llm-id",
+    "provider": "Updated Provider Name",
+    "apiKey": "Updated API Key",
+    "options": {
+      "option1": "value1",
+      "option2": "value2"
+    },
+    "agents": [
+      // List of agents associated with the updated LLM
+    ],
+    "createdAt": "ISO 8601 datetime",
+    "updatedAt": "ISO 8601 datetime",
+    "apiUserId": "api-user-id",
+    "apiUser": {
+      // API user object details
+    }
+  }
+}
+
+
+
+````
+</ResponseExample>
+```

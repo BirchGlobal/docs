@@ -1,3 +1,27 @@
 ---
-openapi: delete /api/v1/tools/{tool_id}
+title: 'Delete Tool'
+api: 'DELETE /api/v1/tools/:tool_id'
 ---
+
+This endpoint deletes a specific tool.
+
+## HTTP Request
+
+`DELETE https://api.gptlab.cloud/api/v1/tools/:tool_id`
+
+### Path Parameters
+
+- `tool_id`: The ID of the tool to be deleted.
+
+<RequestExample>
+
+```bash
+curl -X DELETE \
+     --url "https://api.gptlab.cloud/api/v1/tools/:tool_id" \
+     --header "Authorization: Bearer <token>"
+```
+
+</RequestExample>
+
+### Response
+The response will indicate the success of the deletion operation. Typically, no specific data is returned for a DELETE operation.

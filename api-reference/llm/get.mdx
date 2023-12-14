@@ -1,3 +1,55 @@
 ---
-openapi: get /api/v1/llms/{llm_id}
+title: 'Get LLM'
+api: 'GET /api/v1/llms/:llm_id'
 ---
+
+This endpoint retrieves details of a specific Large Language Model (LLM).
+
+## HTTP Request
+
+`GET https://api.gptlab.cloud/api/v1/llms/:llm_id`
+
+### Path Parameters
+
+- `llm_id`: The ID of the LLM to retrieve.
+
+<RequestExample>
+
+```bash
+curl -X GET \
+     --url "https://api.gptlab.cloud/api/v1/llms/:llm_id" \
+     --header "Authorization: Bearer <token>"
+```
+
+</RequestExample>
+
+
+
+### Response
+The response returns a JSON object containing the details of the specified LLM.
+
+
+
+<ResponseExample>
+````md ResponseExample Syntax{
+  "success": true,
+  "data": {
+    "id": "llm-id",
+    "provider": "llm-provider",
+    "apiKey": "llm-apiKey",
+    "options": "llm-options",
+    "agents": [
+      // List of agents associated with the LLM
+    ],
+    "createdAt": "ISO 8601 datetime",
+    "updatedAt": "ISO 8601 datetime",
+    "apiUserId": "api-user-id",
+    "apiUser": {
+      // API user object details
+    }
+  }
+}
+
+````
+</ResponseExample>
+```

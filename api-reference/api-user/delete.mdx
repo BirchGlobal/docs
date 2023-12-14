@@ -1,3 +1,25 @@
 ---
-openapi: delete /api/v1/api-users/me
+title: 'Delete API User'
+api: 'DELETE /api/v1/api-users/me'
 ---
+
+This endpoint deletes the current API user.
+
+## HTTP Request
+
+`DELETE https://api.gptlab.cloud/api/v1/api-users/me`
+
+<RequestExample>
+
+```bash
+curl -X DELETE \
+     --url "https://api.gptlab.cloud/api/v1/api-users/me" \
+     --header "Authorization: Bearer <token>" \
+     --header "Accept: application/json"
+```
+
+</RequestExample>
+
+
+### Response
+The response for this request typically indicates whether the deletion was successful. The actual response content may vary depending on the API's implementation.

@@ -1,3 +1,67 @@
 ---
-openapi: post /api/v1/api-users
+title: 'Create API User'
+api: 'POST /api/v1/api-users'
 ---
+
+This endpoint creates a new API user.
+
+## HTTP Request
+
+`POST https://api.gptlab.cloud/api/v1/api-users`
+
+### Request Body
+
+The request body should contain an object with the following field:
+- `email`: String (required) - The email address of the new API user.
+
+<RequestExample>
+
+```bash
+curl -X POST \
+     --url "https://api.gptlab.cloud/api/v1/api-users" \
+     --header "Content-Type: application/json" \
+     --data '
+{
+  "email": "user@example.com"
+}
+'
+```
+
+</RequestExample>
+Response
+The response returns a JSON object indicating the success of the operation and details of the newly created API user.
+
+
+
+<ResponseExample>
+````md ResponseExample Syntax
+{
+  "success": true,
+  "data": {
+    "id": "new-api-user-id",
+    "token": "api-user-token",
+    "email": "user@example.com",
+    "createdAt": "ISO 8601 datetime",
+    "updatedAt": "ISO 8601 datetime",
+    "agents": [
+      // List of agents associated with the API user
+    ],
+    "llms": [
+      // List of LLMs associated with the API user
+    ],
+    "datasources": [
+      // List of datasources associated with the API user
+    ],
+    "tools": [
+      // List of tools associated with the API user
+    ],
+    "workflows": [
+      // List of workflows associated with the API user
+    ]
+  }
+}
+
+
+````
+</ResponseExample>
+```

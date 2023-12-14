@@ -1,3 +1,82 @@
 ---
-openapi: patch /api/v1/tools/{tool_id}
+title: 'Update Tool'
+api: 'PATCH /api/v1/tools/:tool_id'
 ---
+
+This endpoint updates details of a specific tool.
+
+## HTTP Request
+
+`PATCH https://api.gptlab.cloud/api/v1/tools/:tool_id`
+
+### Path Parameters
+
+- `tool_id`: The ID of the tool to be updated.
+
+### Request Body
+
+The request body should contain an object with the fields that you want to update:
+- `name`: String - The name of the tool.
+- `description`: String - A description of the tool.
+- `type`: String - The type of the tool.
+- `metadata`: Optional map from strings to any - Additional metadata for the tool.
+- `returnDirect`: Optional boolean - Indicates whether the tool returns direct responses.
+
+<RequestExample>
+
+```bash
+curl -X PATCH \
+     --url "https://api.gptlab.cloud/api/v1/tools/:tool_id" \
+     --header "Content-Type: application/json" \
+     --header "Authorization: Bearer <token>" \
+     --data '
+{
+  "name": "Updated Tool Name",
+  "description": "Updated Tool Description",
+  "type": "Updated Tool Type",
+  "metadata": {
+    "key1": "value1",
+    "key2": "value2"
+  },
+  "returnDirect": true
+}
+'
+```
+
+</RequestExample>
+
+### Response
+The response will return a JSON object indicating the success of the operation and the updated details of the tool.
+
+
+
+<ResponseExample>
+````md ResponseExample Syntax{
+  "success": true,
+  "data": {
+    "id": "updated-tool-id",
+    "name": "Updated Tool Name",
+    "description": "Updated Tool Description",
+    "type": "Updated Tool Type",
+    "returnDirect": true,
+    "metadata": {
+      "key1": "value1",
+      "key2": "value2"
+    },
+    "createdAt": "ISO 8601 datetime",
+    "updatedAt": "ISO 8601 datetime",
+    "apiUserId": "api-user-id",
+    "apiUser": {
+      // API user object details
+    },
+    "tools": [
+      // Additional nested tools details
+    ]
+  }
+}
+
+
+
+````
+</ResponseExample>
+```

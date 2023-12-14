@@ -1,3 +1,61 @@
 ---
-openapi: get /api/v1/datasources
+title: 'List Datasources'
+api: 'GET /api/v1/datasources'
 ---
+
+This endpoint retrieves a list of all datasources.
+
+### HTTP Request
+
+`GET https://api.gptlab.cloud/api/v1/datasources`
+
+<RequestExample>
+
+```bash
+curl -X GET \
+     --url "https://api.gptlab.cloud/api/v1/datasources" \
+     --header "Authorization: Bearer <token>"
+```
+
+</RequestExample>
+
+### Response
+The response returns a JSON object containing a list of all datasources with their details.
+
+
+
+
+<ResponseExample>
+````md ResponseExample Syntax
+
+{
+  "success": true,
+  "data": [
+    {
+      "id": "datasource-id",
+      "name": "datasource-name",
+      "content": "datasource-content",
+      "description": "datasource-description",
+      "url": "datasource-url",
+      "type": "datasource-type",
+      "apiUserId": "api-user-id",
+      "apiUser": {
+        // API user object details
+      },
+      "createdAt": "ISO 8601 datetime",
+      "updatedAt": "ISO 8601 datetime",
+      "metadata": "datasource-metadata",
+      "status": "datasource-status",
+      "datasources": [
+        // Additional nested datasources details
+      ]
+    }
+    // ... additional datasources ...
+  ]
+}
+
+
+
+````
+</ResponseExample>
+```
